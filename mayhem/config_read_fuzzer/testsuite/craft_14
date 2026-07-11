@@ -1,0 +1,4 @@
+count = 42;
+ratio = 1.5;
+enabled = true;
+name = "hello";

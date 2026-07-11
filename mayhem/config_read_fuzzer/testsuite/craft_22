@@ -1,0 +1,4 @@
+big = 2147483647;
+neg = -1;
+hex = 0xDEADBEEF;
+hex2 = 0x0;

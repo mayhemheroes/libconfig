@@ -1,0 +1,5 @@
+empty_group:
+{
+};
+empty_list = ();
+empty_string = "";

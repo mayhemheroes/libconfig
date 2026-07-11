@@ -1,0 +1,53 @@
+# libFuzzer dictionary for libconfig's config_read_fuzzer.
+# The harness input is a packed fuzz_data_t struct; these tokens seed the embedded config-text
+# region. libConfig grammar: settings (name = value;), groups { }, arrays [ ], lists ( ),
+# typed scalars, includes, comments, and the numeric/string literal forms the scanner recognizes.
+
+# structural / punctuation
+eq="="
+colon=":"
+semi=";"
+comma=","
+lbrace="{"
+rbrace="}"
+lbracket="["
+rbracket="]"
+lparen="("
+rparen=")"
+
+# boolean / typed literal keywords
+kw_true="true"
+kw_false="false"
+kw_TRUE="TRUE"
+kw_FALSE="FALSE"
+
+# include directive (scanctx include handling)
+kw_include="@include"
+kw_include_dq="@include \""
+
+# integer / float / hex / scientific forms the scanner tokenizes
+int="1234"
+neg="-1"
+int64="9223372036854775807L"
+hex="0x1A2B"
+hex64="0xFFFFFFFFFFFFFFFFL"
+float="1.234"
+float_exp="1.0e10"
+float_neg="-3.14"
+
+# string + escapes
+str="\"hello\""
+str_esc="\"a\\tb\\n\""
+str_hex="\"\\x41\""
+
+# common nested-structure shapes
+group="name:\x0a{\x0a};"
+setting="x = 1;"
+array="a = [1, 2, 3];"
+list="l = ( 1, \"s\", 2.0 );"
+nested="a:\x0a{\x0a  b = 1;\x0a};"
+
+# comment forms
+comment_c="/* */"
+comment_cpp="// "
+comment_hash="# "

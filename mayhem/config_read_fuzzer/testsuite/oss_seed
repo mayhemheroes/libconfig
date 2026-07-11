@@ -1,0 +1,11 @@
+application:
+{
+  name = "FooApp";
+  version = "1.2.3";
+  modules = ("net", "ui", "db");
+  window:
+  {
+    title = "FooApp Window";
+    size = { w = 1024; h = 768; };
+  };
+};
